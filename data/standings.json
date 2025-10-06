@@ -1,0 +1,18 @@
+[
+  {
+    "teamId": "team1",
+    "rank": 1,
+    "wins": 8,
+    "losses": 2,
+    "pointsFor": 845,
+    "pointsAgainst": 770
+  },
+  {
+    "teamId": "team2",
+    "rank": 2,
+    "wins": 6,
+    "losses": 4,
+    "pointsFor": 810,
+    "pointsAgainst": 795
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "p1",
+    "name": "Aliou Sow",
+    "number": 9,
+    "position": "Guard",
+    "age": 26,
+    "nationality": "Senegal",
+    "teamId": "team1",
+    "stats": { "pointsPerGame": 18.5, "reboundsPerGame": 4.2, "assistsPerGame": 6.1 }
+  },
+  {
+    "id": "p2",
+    "name": "Yao Kouassi",
+    "number": 23,
+    "position": "Forward",
+    "age": 29,
+    "nationality": "Côte d'Ivoire",
+    "teamId": "team2",
+    "stats": { "pointsPerGame": 21.7, "reboundsPerGame": 7.8, "assistsPerGame": 3.4 }
+  }
+]

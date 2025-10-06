@@ -1,0 +1,18 @@
+[
+  {
+    "id": "m1",
+    "date": "2025-10-03T18:00:00Z",
+    "location": "Dakar Arena",
+    "homeTeamId": "team1",
+    "awayTeamId": "team2",
+    "score": { "home": 92, "away": 88 }
+  },
+  {
+    "id": "m2",
+    "date": "2025-10-10T18:00:00Z",
+    "location": "Abidjan Dome",
+    "homeTeamId": "team2",
+    "awayTeamId": "team1",
+    "score": { "home": 76, "away": 84 }
+  }
+]

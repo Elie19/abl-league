@@ -1,0 +1,20 @@
+[
+  {
+    "id": "team1",
+    "name": "Dakar Lions",
+    "city": "Dakar",
+    "logo": "/images/teams/dakar-lions.png",
+    "coach": "Mamadou Diop",
+    "founded": 2010,
+    "record": { "wins": 8, "losses": 2 }
+  },
+  {
+    "id": "team2",
+    "name": "Abidjan Warriors",
+    "city": "Abidjan",
+    "logo": "/images/teams/abidjan-warriors.png",
+    "coach": "Franck Kouamé",
+    "founded": 2012,
+    "record": { "wins": 6, "losses": 4 }
+  }
+]
