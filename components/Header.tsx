@@ -3,43 +3,104 @@
 import Link from "next/link";
 import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
+import GlobalSearch from "./GlobalSearch";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white dark:bg-secondary border-b dark:border-gray-700 sticky top-0 z-50">
-      <nav className="max-w-6xl mx-auto flex justify-between items-center p-4">
-        <Link href="/" className="font-display text-2xl text-primary">
-          ABL
-        </Link>
+    <header className="bg-white dark:bg-secondary border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
+      <nav className="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
+        {/* Logo + Recherche */}
+        <div className="flex items-center gap-4">
+          <Link
+            href="/"
+            className="font-display text-2xl text-primary hover:text-orange-500 transition"
+          >
+            ABL
+          </Link>
 
-        <div className="hidden md:flex gap-6 items-center">
-          <Link href="/" className="hover:text-primary transition">Home</Link>
-          <Link href="/teams" className="hover:text-primary transition">Teams</Link>
-          <Link href="/matches" className="hover:text-primary transition">Matches</Link>
-          <Link href="/standings" className="hover:text-primary transition">Standings</Link>
+          {/* Recherche globale (desktop uniquement) */}
+          <div className="hidden md:block w-72">
+            <GlobalSearch />
+          </div>
+        </div>
+
+        {/* Liens de navigation (desktop) */}
+        <div className="hidden md:flex items-center gap-6">
+          <Link
+            href="/"
+            className="hover:text-primary transition-colors duration-200"
+          >
+            Home
+          </Link>
+          <Link
+            href="/teams"
+            className="hover:text-primary transition-colors duration-200"
+          >
+            Teams
+          </Link>
+          <Link
+            href="/matches"
+            className="hover:text-primary transition-colors duration-200"
+          >
+            Matches
+          </Link>
+          <Link
+            href="/standings"
+            className="hover:text-primary transition-colors duration-200"
+          >
+            Standings
+          </Link>
           <ThemeToggle />
         </div>
 
-        {/* Menu mobile */}
+        {/* Bouton menu mobile */}
         <button
-          className="md:hidden text-2xl"
           onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden text-2xl text-gray-700 dark:text-gray-100"
         >
-          ☰
+          {menuOpen ? "✕" : "☰"}
         </button>
+      </nav>
 
-        {menuOpen && (
-          <div className="absolute top-16 left-0 w-full bg-white dark:bg-secondary border-t dark:border-gray-700 flex flex-col items-center gap-4 py-4 md:hidden">
-            <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
-            <Link href="/teams" onClick={() => setMenuOpen(false)}>Teams</Link>
-            <Link href="/matches" onClick={() => setMenuOpen(false)}>Matches</Link>
-            <Link href="/standings" onClick={() => setMenuOpen(false)}>Standings</Link>
+      {/* Menu déroulant mobile */}
+      {menuOpen && (
+        <div className="md:hidden bg-white dark:bg-secondary border-t border-gray-200 dark:border-gray-700">
+          <div className="flex flex-col items-center gap-4 py-4">
+            <GlobalSearch />
+            <Link
+              href="/"
+              onClick={() => setMenuOpen(false)}
+              className="hover:text-primary transition"
+            >
+              Home
+            </Link>
+            <Link
+              href="/teams"
+              onClick={() => setMenuOpen(false)}
+              className="hover:text-primary transition"
+            >
+              Teams
+            </Link>
+            <Link
+              href="/matches"
+              onClick={() => setMenuOpen(false)}
+              className="hover:text-primary transition"
+            >
+              Matches
+            </Link>
+            <Link
+              href="/standings"
+              onClick={() => setMenuOpen(false)}
+              className="hover:text-primary transition"
+            >
+              Standings
+            </Link>
             <ThemeToggle />
           </div>
-        )}
-      </nav>
+        </div>
+      )}
     </header>
   );
 }

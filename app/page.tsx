@@ -2,59 +2,76 @@ import Image from "next/image";
 import Link from "next/link";
 import teams from "@/data/teams.json";
 import matches from "@/data/matches.json";
+import ScoreChart from "@/components/ScoreChart";
 
-export default function Home() {
-  const recentMatches = matches.slice(0, 2);
+export const metadata = {
+  title: "Accueil",
+  description:
+    "Bienvenue sur la plateforme officielle de la African Basketball League. Consultez les résultats, classements et statistiques des meilleures équipes africaines.",
+};
+
+export default function HomePage() {
+  const latestMatches = matches.slice(0, 3);
   const topTeams = teams.slice(0, 3);
 
   return (
-    <div className="space-y-12 py-6">
-      {/* Bannière */}
-      <section className="relative bg-gradient-to-r from-primary to-orange-600 text-white rounded-2xl p-10 shadow-lg overflow-hidden">
-        <h1 className="text-4xl font-display mb-4">African Basketball League</h1>
-        <p className="text-lg opacity-90">Where African Passion Meets Basketball 🏀</p>
+    <div className="space-y-10">
+      <section className="text-center">
+        <h1 className="text-4xl font-bold mb-2">
+          African Basketball League 🏀
+        </h1>
+        <p className="text-gray-600 dark:text-gray-400">
+          Suivez les résultats, classements et statistiques des meilleures
+          équipes africaines.
+        </p>
       </section>
 
-      {/* Derniers résultats */}
+      {/* Chart des scores moyens */}
+      <ScoreChart />
+
       <section>
-        <h2 className="text-2xl font-display mb-4">Latest Results</h2>
-        <div className="grid md:grid-cols-2 gap-4">
-          {recentMatches.map((m) => (
-            <div
-              key={m.id}
-              className="p-4 border dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800"
+        <h2 className="text-2xl font-semibold mb-4">Top 3 équipes</h2>
+        <div className="grid md:grid-cols-3 gap-4">
+          {topTeams.map((team) => (
+            <Link
+              key={team.id}
+              href={`/teams/${team.id}`}
+              className="border rounded-lg p-4 hover:shadow-lg transition"
             >
-              <p className="text-lg font-semibold">
-                {m.homeTeamId} {m.score.home} - {m.score.away} {m.awayTeamId}
-              </p>
-              <p className="text-sm text-gray-500">
-                {new Date(m.date).toLocaleDateString()} — {m.location}
-              </p>
-            </div>
+              <Image
+                src={team.logo}
+                alt={team.name}
+                width={150}
+                height={150}
+                priority
+                className="mx-auto"
+              />
+              <h3 className="text-center mt-2 font-semibold">{team.name}</h3>
+              <p className="text-center text-sm text-gray-500">{team.city}</p>
+            </Link>
           ))}
         </div>
       </section>
 
-      {/* Top 3 équipes */}
       <section>
-        <h2 className="text-2xl font-display mb-4">Top 3 Teams</h2>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {topTeams.map((t) => (
-            <Link
-              key={t.id}
-              href={`/teams/${t.id}`}
-              className="p-4 border dark:border-gray-700 rounded-lg hover:shadow-md transition"
+        <h2 className="text-2xl font-semibold mb-4">Derniers résultats</h2>
+        <div className="grid md:grid-cols-3 gap-4">
+          {latestMatches.map((match) => (
+            <div
+              key={match.id}
+              className="p-4 border rounded-lg dark:border-gray-700"
             >
-              <Image
-                src={t.logo}
-                alt={t.name}
-                width={80}
-                height={80}
-                className="mx-auto"
-              />
-              <h3 className="text-xl font-semibold text-center mt-2">{t.name}</h3>
-              <p className="text-center text-sm text-gray-500">{t.city}</p>
-            </Link>
+              <p className="font-medium text-center">
+                {match.homeTeamId}{" "}
+                <span className="text-orange-500">vs</span>{" "}
+                {match.awayTeamId}
+              </p>
+              {match.score && (
+                <p className="text-center text-gray-400 mt-1">
+                  {match.score.home} - {match.score.away}
+                </p>
+              )}
+            </div>
           ))}
         </div>
       </section>
