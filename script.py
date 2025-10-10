@@ -1,8 +1,4 @@
 #!/usr/bin/env python3
-"""
-Génère l’arborescence complète d’un projet Next.js (App Router) telle que décrite.
-Usage : python create_tree.py
-"""
 
 from pathlib import Path
 import os
@@ -195,4 +191,4 @@ def build_tree(base: Path, tree: dict[str, str | list[str]]) -> None:
 
 if __name__ == "__main__":
     build_tree(PROJECT_ROOT, TREE)
-    print("✅ Arborescence créée dans :", PROJECT_ROOT.resolve())
+    print(" Arborescence créée dans :", PROJECT_ROOT.resolve())

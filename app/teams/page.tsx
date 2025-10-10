@@ -1,32 +1,22 @@
 import Link from "next/link";
-import Image from "next/image";
-import teams from "@/data/teams.json";
-
-export const metadata = {
-  title: "Équipes",
-  description: "Découvrez toutes les équipes participantes à la African Basketball League.",
-};
+import { teams } from "@/app/api/teams/data";
 
 export default function TeamsPage() {
   return (
-    <div className="py-6">
-      <h1 className="text-3xl font-bold mb-6">Toutes les équipes</h1>
-      <div className="grid md:grid-cols-3 gap-6">
+    <div className="container mx-auto px-4 py-10">
+      <h1 className="text-3xl font-bold mb-6 text-center">Teams</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {teams.map((team) => (
           <Link
             key={team.id}
             href={`/teams/${team.id}`}
-            className="block border rounded-xl p-4 hover:shadow-md transition"
+            className="block bg-blue-950 text-white rounded-lg p-6 hover:scale-105 transition-transform"
           >
-            <Image
-              src={team.logo}
-              alt={team.name}
-              width={150}
-              height={150}
-              className="mx-auto"
-            />
-            <h2 className="text-xl font-semibold text-center mt-2">{team.name}</h2>
-            <p className="text-center text-gray-500">{team.city}</p>
+            <h2 className="text-xl font-semibold">{team.name}</h2>
+            <p>{team.city}</p>
+            <p className="text-sm text-gray-300">
+              Coach: {team.coach} | Fondée: {team.founded}
+            </p>
           </Link>
         ))}
       </div>
