@@ -9,12 +9,12 @@ export interface Player {
 export interface Team {
   id: string;
   name: string;
-  logo: string;
-  country: string;
-  title: number; // Ajout du champ title
-  city: string;
-  coach: string;
-  founded: number;
+  logo?: string;
+  country?: string;
+  title?: number; // Ajout du champ title
+  city?: string;
+  coach?: string;
+  founded?: number;
   record?: { wins: number; losses: number }; // Ajout pour éviter l'erreur dans [id]
   players?: Player[];
 }
