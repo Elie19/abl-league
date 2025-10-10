@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -38,7 +36,7 @@ export default function HomePage() {
       {/* Background image  */}
       <div className="absolute inset-0 h-1/2 w-full overflow-hidden">
         <Image
-          src="/images/basket-bg.jpg"
+          src="/images/basket-bg.png"
           alt="Background basketball"
           fill
           priority
@@ -176,7 +174,7 @@ export default function HomePage() {
           </div>
         </motion.section>
 
-        {/* 🚀 CTA */}
+        {/*  CTA */}
         <motion.section
           className="mt-12 text-center"
           variants={fadeUp}
