@@ -1,103 +1,76 @@
 "use client";
 
 import { useState } from "react";
-import { generateICS } from "@/lib/calendar";
-import { Match } from "@/lib/types";
-import { matches } from "@/app/api/matches/data";
-import { motion } from "framer-motion";
+import { Match } from "../types"; // Assure-toi que Match est défini avec teamA.id et teamB.id en string
+import { generateICS } from "../utils/icsGenerator"; //fonction utilitaire pour générer le .ics
 
-export default function MatchesClient() {
+interface MatchesClientProps {
+  matches: Match[];
+}
+
+export default function MatchesClient({ matches }: MatchesClientProps) {
   const [icsContent, setIcsContent] = useState<string | null>(null);
 
   const handleExportCalendar = () => {
-    // On ne prend que les matchs avec une date définie
-    const validMatches: Match[] = matches
-      .filter(
-        (m): m is Match =>
-          m.date !== undefined &&
-          m.teamA !== undefined &&
-          m.teamB !== undefined
-      )
-      .map((m) => ({
-        id: m.id,
-        date: m.date,
-        stadium: m.stadium ?? "",
-        scoreA: m.scoreA,
-        scoreB: m.scoreB,
-        teamA: {
-          id: String(m.teamA.id),
-          name: m.teamA.name,
-          logo: m.teamA.logo,
-          country: m.teamA.country,
-          title: m.teamA.title ?? 0,
-          city: m.teamA.city ?? "",
-          coach: m.teamA.coach ?? "",
-          founded: m.teamA.founded ?? 0,
-        },
-        teamB: {
-          id: String(m.teamB.id),
-          name: m.teamB.name,
-          logo: m.teamB.logo,
-          country: m.teamB.country,
-          title: m.teamB.title ?? 0,
-          city: m.teamB.city ?? "",
-          coach: m.teamB.coach ?? "",
-          founded: m.teamB.founded ?? 0,
-        },
-      }));
+    // Filtrer pour obtenir uniquement les matchs valides
+    const validMatches: Match[] = matches.filter(
+      (m): m is Match => m.date !== undefined && m.teamA.id !== undefined && m.teamB.id !== undefined
+    );
 
     const ics = generateICS(validMatches);
     setIcsContent(ics);
 
+    // Téléchargement du fichier .ics
     const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
     const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "abl-league-calendar.ics";
-    link.click();
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "matches.ics";
+    a.click();
     URL.revokeObjectURL(url);
   };
 
   return (
-    <div className="container mx-auto px-4 py-10">
-      <motion.h1
-        className="text-3xl font-bold mb-6"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
-        Matchs
-      </motion.h1>
-
-      <p className="text-gray-500 dark:text-gray-400 mb-6">
-        Consultez les résultats récents, les matchs à venir et ajoutez-les à
-        votre calendrier.
-      </p>
-
+    <div className="matches-client">
       <button
+        className="px-4 py-2 mb-4 bg-blue-600 text-white rounded hover:bg-blue-700"
         onClick={handleExportCalendar}
-        className="mb-8 px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-all"
       >
-        Exporter le calendrier (.ics)
+        Exporter le calendrier
       </button>
 
-      <div className="grid gap-6 md:grid-cols-2">
-        {matches
-          .filter((m): m is Match => m.date !== undefined)
-          .map((match) => (
-            <motion.div
-              key={match.id}
-              className="p-5 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-md"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
-              <div className="flex justify-between items-center mb-2">
-                <h3 className="text-xl font-semibold">
-                  {match.teamA.name} vs {match.teamB.name}
-                </h3>
-                <p className="text-sm text-gray-500">
-                  {new Date(match.date).toLocaleDateString("fr-FR", {
-                    weekday: "short",
-                    month: "short",
-                    day: "numeric",
-                    hour: "2-digit",
-                    minute: "2-digit",
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {matches.map((match) => (
+          <div key={match.id} className="p-4 border rounded shadow-sm">
+            <div className="flex justify-between items-center mb-2">
+              <div className="flex items-center gap-2">
+                <img src={match.teamA.logo} alt={match.teamA.name} className="w-8 h-8" />
+                <span>{match.teamA.name}</span>
+              </div>
+              <span>VS</span>
+              <div className="flex items-center gap-2">
+                <img src={match.teamB.logo} alt={match.teamB.name} className="w-8 h-8" />
+                <span>{match.teamB.name}</span>
+              </div>
+            </div>
+
+            <p className="text-sm text-gray-500">
+              {new Date(match.date).toLocaleDateString("fr-FR", {
+                weekday: "short",
+                month: "short",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            </p>
+
+            <p className="text-sm text-gray-500">Stade: {match.stadium}</p>
+            <p className="text-sm text-gray-500">
+              Score: {match.scoreA} - {match.scoreB}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
