@@ -1,3 +1,4 @@
+// app/matches/MatchesClient.tsx
 "use client";
 
 import { useState } from "react";
@@ -21,7 +22,7 @@ export default function MatchesClient() {
       .map((m) => ({
         ...m,
         teamA: {
-          id: Number(m.teamA.id), // conversion string -> number
+          id: Number(m.teamA.id), // conversion string → number
           name: m.teamA.name,
           logo: m.teamA.logo,
           country: m.teamA.country,
@@ -31,7 +32,7 @@ export default function MatchesClient() {
           founded: m.teamA.founded ?? 0,
         },
         teamB: {
-          id: Number(m.teamB.id), // conversion string -> number
+          id: Number(m.teamB.id), // conversion string → number
           name: m.teamB.name,
           logo: m.teamB.logo,
           country: m.teamB.country,
@@ -111,7 +112,7 @@ export default function MatchesClient() {
                   Résultat : {match.scoreA} - {match.scoreB}
                 </p>
               ) : (
-                <p className="mt-2 text-sm text-yellow-500">À venir</p>
+                <p className="mt-2 text-sm text-yellow-500">À venir </p>
               )}
             </motion.div>
           ))}
