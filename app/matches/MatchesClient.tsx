@@ -1,4 +1,3 @@
-// app/matches/MatchesClient.tsx
 "use client";
 
 import { useState } from "react";
@@ -11,7 +10,7 @@ export default function MatchesClient() {
   const [icsContent, setIcsContent] = useState<string | null>(null);
 
   const handleExportCalendar = () => {
-    // Transforme les matchs pour correspondre au type Match
+    // On ne prend que les matchs avec une date définie
     const validMatches: Match[] = matches
       .filter(
         (m): m is Match =>
@@ -20,9 +19,13 @@ export default function MatchesClient() {
           m.teamB !== undefined
       )
       .map((m) => ({
-        ...m,
+        id: m.id,
+        date: m.date,
+        stadium: m.stadium ?? "",
+        scoreA: m.scoreA,
+        scoreB: m.scoreB,
         teamA: {
-          id: String(m.teamA.id), // garder en string
+          id: String(m.teamA.id),
           name: m.teamA.name,
           logo: m.teamA.logo,
           country: m.teamA.country,
@@ -32,7 +35,7 @@ export default function MatchesClient() {
           founded: m.teamA.founded ?? 0,
         },
         teamB: {
-          id: String(m.teamB.id), // garder en string
+          id: String(m.teamB.id),
           name: m.teamB.name,
           logo: m.teamB.logo,
           country: m.teamB.country,
@@ -46,7 +49,6 @@ export default function MatchesClient() {
     const ics = generateICS(validMatches);
     setIcsContent(ics);
 
-    // Crée et télécharge le fichier .ics
     const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
@@ -81,7 +83,7 @@ export default function MatchesClient() {
       <div className="grid gap-6 md:grid-cols-2">
         {matches
           .filter((m): m is Match => m.date !== undefined)
-          .map((match: Match) => (
+          .map((match) => (
             <motion.div
               key={match.id}
               className="p-5 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-md"
@@ -99,30 +101,3 @@ export default function MatchesClient() {
                     day: "numeric",
                     hour: "2-digit",
                     minute: "2-digit",
-                  })}
-                </p>
-              </div>
-
-              <p className="text-sm text-gray-400">
-                📍 {match.stadium || "Stade non spécifié"}
-              </p>
-
-              {match.scoreA !== undefined && match.scoreB !== undefined ? (
-                <p className="mt-2 text-lg font-medium text-green-600 dark:text-green-400">
-                  Résultat : {match.scoreA} - {match.scoreB}
-                </p>
-              ) : (
-                <p className="mt-2 text-sm text-yellow-500">À venir ⏳</p>
-              )}
-            </motion.div>
-          ))}
-      </div>
-
-      {icsContent && (
-        <pre className="mt-8 bg-gray-900 text-white p-4 rounded-lg overflow-x-auto text-sm">
-          {icsContent}
-        </pre>
-      )}
-    </div>
-  );
-}
