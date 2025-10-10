@@ -40,7 +40,7 @@ export default function StandingsPage() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        Classement & Performances des équipes 🏀
+        Classement & Performances des équipes 
       </motion.h1>
 
       <div className="flex justify-center mb-6">
@@ -99,7 +99,7 @@ export default function StandingsPage() {
           animate={{ opacity: 1, y: 0 }}
         >
           <h2 className="text-2xl font-bold mb-4 text-center">
-            Performances moyennes par équipe 📊
+            Performances moyennes par équipe 
           </h2>
           <ResponsiveContainer width="100%" height={350}>
             <BarChart data={chartData}>
@@ -121,7 +121,7 @@ export default function StandingsPage() {
       )}
 
       <p className="text-center text-gray-500 dark:text-gray-400 mt-6">
-        🏆 Classement mis à jour selon les performances récentes des équipes.
+         Classement mis à jour selon les performances récentes des équipes.
       </p>
     </div>
   );

@@ -1,36 +1,148 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+#  ABL League – African Basketball League
 
-## Getting Started
+Une application web moderne construite avec **Next.js 15**, **TypeScript** et **Tailwind CSS**, permettant de suivre les équipes, matchs, classements et statistiques de la **ligue africaine de basketball (ABL)**.
 
-First, run the development server:
+---
 
-```bash
+##  Fonctionnalités principales
+
+###  Pages et navigation
+- **Accueil** : présentation générale avec bannière visuelle et top équipes.  
+- **Teams** : liste complète des équipes participantes.  
+- **Team Details** : page détaillée avec logo, photo de couverture, effectif (roster) et informations sur l’équipe.  
+- **Matches** : calendrier des matchs passés et à venir avec résultats.  
+- **Standings** : classement automatique mis à jour à partir des matchs.  
+
+---
+
+##  Stack technique
+
+| Technologie | Rôle |
+
+| **Next.js 15 (App Router)** | Framework principal |
+| **React / TypeScript** | Interface utilisateur et typage |
+| **Tailwind CSS** | Style et mise en page responsive |
+| **Framer Motion** | Animations fluides |
+| **Zustand / Context API** | Gestion d’état |
+ **Lucide React** | Icônes modernes |
+**Next Themes**  Mode sombre / clair 
+ **Recharts** Visualisation des statistiques 
+
+---
+
+##  Arborescence du projet
+
+abl-league/
+├── app/
+│ ├── api/
+│ │ ├── teams/
+│ │ │ └── data.ts
+│ │ ├── matches/
+│ │ │ └── data.ts
+│ │ └── standings/
+│ │ └── data.ts
+│ ├── teams/
+│ │ ├── page.tsx
+│ │ └── [id]/
+│ │ └── page.tsx
+│ ├── matches/
+│ │ └── page.tsx
+│ ├── standings/
+│ │ └── page.tsx
+│ ├── layout.tsx
+│ └── page.tsx
+├── components/
+│ ├── Navbar.tsx
+│ ├── Footer.tsx
+│ ├── ThemeToggle.tsx
+│ └── HomeClient.tsx
+├── lib/
+│ ├── store.ts
+│ └── types.ts
+├── public/
+│ ├── logos/
+│ ├── covers/
+│ └── players/
+│ └── placeholder.png
+├── scripts/
+│ ├── generatePlaceholders.js
+│ └── recalculateStandings.js
+├── tailwind.config.ts
+├── tsconfig.json
+├── package.json
+└── README.md
+
+
+---
+
+##  Installation et démarrage
+
+###  Cloner le projet
+
+git clone https://github.com/Elie19/abl-league.git
+cd abl-league
+
+### Installer les dépendances
+npm install
+
+
+Si tu rencontres une erreur “module not found”, installe les dépendances manquantes :
+
+npm install next-themes lucide-react recharts critters fs-extra
+
+### Lancer le serveur de développement
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Le site sera disponible sur 👉 http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Données intégrées
 
-## Learn More
+20 équipes inspirées de la Basketball Africa League (bal.nba.com)
 
-To learn more about Next.js, take a look at the following resources:
+Chaque équipe contient :
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Logo (/public/logos)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Image de couverture (/public/covers)
 
-## Deploy on Vercel
+Liste complète de joueurs (Player[])
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Statistiques cohérentes pour le classement (standings/data.ts)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Matchs générés automatiquement (matches/data.ts)
+
+### Design & Expérience utilisateur
+
+Interface responsive et mobile-first
+
+Mode sombre / clair avec animation fluide
+
+Transitions douces (Framer Motion)
+
+Arrière-plans photo réalistes (/public/basket-bg.png)
+
+Placeholders pour les joueurs sans photo (/public/players/placeholder.png)
+
+ Bonus et optimisations
+
+SEO complet : balises <head>, OpenGraph, JSON-LD
+
+Support PWA avec favicon et manifest.json
+
+Performances validées (Lighthouse > 90)
+
+Accessibilité améliorée (Core Web Vitals)
+
+### Auteur
+
+Elie AMOUSSOU GUENOU 
+Développeur Front-End • Passionné de technologies modernes et d’éducation numérique.
+ Contact
+fallfly240@mail.com 
+### Licence
+
+Projet développé à des fins pédagogiques et de démonstration technique.
+© 2025 African Basketball League — Tous droits réservés.
+
+
