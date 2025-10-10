@@ -20,7 +20,7 @@ export interface Team {
 }
 
 export interface Match {
-  id: number;
+  id: string;
   date: string;
   teamA: Team;
   teamB: Team;
