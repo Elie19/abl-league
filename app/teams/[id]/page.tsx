@@ -57,7 +57,7 @@ export default function TeamDetailPage() {
 
         <div className="flex justify-center items-center gap-6 mt-6">
           <div className="text-center">
-            <p className="text-lg font-bold text-primary">{team.titles || 0}</p>
+            <p className="text-lg font-bold text-primary">{team.title || 0}</p>
             <p className="text-sm text-gray-500">Titres</p>
           </div>
           <div className="text-center">
