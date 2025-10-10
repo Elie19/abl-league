@@ -85,7 +85,7 @@ export default function TeamDetailPage() {
               >
                 <div className="flex flex-col items-center">
                   <Image
-                    src={player.photo || "/images/player-placeholder.jpg"}
+                    src={ "/images/player-placeholder.jpg"}
                     alt={player.name}
                     width={80}
                     height={80}
@@ -96,7 +96,7 @@ export default function TeamDetailPage() {
                   </h3>
                   <p className="text-sm text-gray-500">{player.position}</p>
                   <p className="text-xs text-gray-400">
-                    #{player.number} — {player.nationality}
+                  
                   </p>
                 </div>
               </motion.div>

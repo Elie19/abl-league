@@ -4,6 +4,9 @@ export interface Player {
   name: string;
   position: string;
   teamId: number;
+  photo?: string;
+  nationality?: string;
+  number?: number;
 }
 
 export interface Team {
