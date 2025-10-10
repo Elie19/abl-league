@@ -6,30 +6,18 @@ import { teams } from "@/app/api/teams/data";
 
 export default function HomeClient() {
   return (
-    <main className="min-h-screen bg-gray-50">
-      {/* Section d’en-tête avec fond */}
-      <section className="relative h-[50vh] flex items-center justify-center text-white overflow-hidden">
-        {/* Image de fond */}
-        <Image
-          src="/basket-bg.png"
-          alt="Basketball background"
-          fill
-          priority
-          className="object-cover brightness-50"
-        />
-
-        {/* Contenu par-dessus */}
-        <div className="relative z-10 text-center px-4">
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
-            African Basketball League 
-          </h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            Suivez les résultats, classements et statistiques des meilleures équipes africaines.
-          </p>
-        </div>
+    <main className="bg-gray-50 min-h-screen">
+      {/* En-tête */}
+      <section className="text-center py-16 bg-gradient-to-b from-blue-900 to-blue-700 text-white">
+        <h1 className="text-5xl font-extrabold mb-4">
+          African Basketball League 
+        </h1>
+        <p className="text-lg">
+          Suivez les résultats, classements et statistiques des meilleures équipes africaines.
+        </p>
       </section>
 
-      {/* Section des équipes */}
+      {/* Liste des équipes */}
       <section className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 p-8">
         {teams.slice(0, 8).map((team) => (
           <Link
