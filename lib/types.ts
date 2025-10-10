@@ -11,7 +11,7 @@ export interface Team {
   name: string;
   logo?: string;
   country?: string;
-  title?: number; // Ajout du champ title
+  titles?: number; // Ajout du champ title
   city?: string;
   coach?: string;
   founded?: number;
