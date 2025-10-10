@@ -22,7 +22,7 @@ export default function TeamDetailPage() {
       {/* Image de couverture */}
       <section className="relative w-full h-64 md:h-80 overflow-hidden">
         <Image
-          src={team.cover || "/images/team-cover.jpg"}
+          src={team.cover || "/images/team-cover.png"}
           alt={`${team.name} cover`}
           fill
           priority

@@ -8,7 +8,7 @@ export const teams = [
     coach: "Sérgio Valdeolmillos",
     founded: 1980,
     logo: "/logos/petro-de-luanda.png",
-    cover: "/images/petro-cover.jpg",
+    cover: "/images/petro-cover.png",
     players: [
       { id: 101, name: "Carlos Morais", position: "G", number: 3 },
       { id: 102, name: "Edgar Sosa", position: "G", number: 5 },
@@ -28,7 +28,7 @@ export const teams = [
     coach: "Fouad Abou Chakra",
     founded: 1950,
     logo: "/logos/al-ahli-tripoli.png",
-    cover: "/images/petro-cover.jpg",
+    cover: "/images/team-cover.png",
     players: [
       { id: 201, name: "Mohamed Salah", position: "G", number: 4 },
       { id: 202, name: "Ali Ben", position: "G", number: 6 },
@@ -48,7 +48,7 @@ export const teams = [
     coach: "Vasco Curado",
     founded: 1959,
     logo: "/logos/us-monastir.png",
-    cover: "/images/petro-cover.jpg",
+    cover: "/images/cover-usm.png",
     players: [
       { id: 301, name: "Amer Salloum", position: "G", number: 1 },
       { id: 302, name: "Sofiene Tlatli", position: "G", number: 2 },
@@ -68,7 +68,7 @@ export const teams = [
     coach: "Said El Bouzidi",
     founded: 1946,
     logo: "/logos/fus-rabat.png",
-    cover: "/images/petro-cover.jpg",
+    cover: "/images/placeholder.webp",
     players: [
       { id: 401, name: "Youssef Elhaj", position: "G", number: 3 },
       { id: 402, name: "Rachid Bouziane", position: "G", number: 5 },
@@ -88,7 +88,7 @@ export const teams = [
     coach: "Ogoh Odaudu",
     founded: 2001,
     logo: "/logos/rivers-hoopers.png",
-    cover: "/images/petro-cover.jpg",
+    cover: "/images/cover4.webp",
     players: [
       { id: 501, name: "Olu Okafor", position: "G", number: 4 },
       { id: 502, name: "Chukwudi Nwosu", position: "G", number: 6 },
@@ -108,7 +108,7 @@ export const teams = [
     coach: "James Maye Jr.",
     founded: 1990,
     logo: "/logos/apr.png",
-    cover: "/images/petro-cover.jpg",
+    cover: "/images/cover2.webp",
     players: [
       { id: 601, name: "Eric Kizito", position: "G", number: 5 },
       { id: 602, name: "Jean Bosco", position: "G", number: 6 },
@@ -128,7 +128,7 @@ export const teams = [
     coach: "Ahmed Soliman",
     founded: 1914,
     logo: "/logos/al-ittihad-alexandria.png",
-    cover: "/images/petro-cover.jpg",
+    cover: "/images/cover3.webp",
     players: [
       { id: 701, name: "Mohamed Ahmed", position: "G", number: 1 },
       { id: 702, name: "Ayman Soliman", position: "G", number: 2 },
@@ -148,7 +148,7 @@ export const teams = [
     coach: "Hugo Salgado",
     founded: 2015,
     logo: "/logos/kriol-star.png",
-    cover: "/images/petro-cover.jpg",
+    cover: "/images/placeholder.webp",
     players: [
       { id: 801, name: "Pedro Lopes", position: "G", number: 3 },
       { id: 802, name: "Joao Mendes", position: "G", number: 5 },
@@ -168,7 +168,7 @@ export const teams = [
     coach: "Amadou Diallo",
     founded: 1960,
     logo: "/logos/stade-malien.png",
-    cover: "/images/petro-cover.jpg",
+    cover: "/images/placeholder.webp",
     players: [
       { id: 901, name: "Ibrahim Traoré", position: "G", number: 4 },
       { id: 902, name: "Moussa Coulibaly", position: "G", number: 6 },
@@ -188,7 +188,7 @@ export const teams = [
     coach: "Mamadou Diop",
     founded: 1965,
     logo: "/logos/asc-dakar.png",
-    cover: "/images/petro-cover.jpg",
+    cover: "/images/placeholder.webp",
     players: [
       { id: 1001, name: "Issa Fall", position: "G", number: 7 },
       { id: 1002, name: "Cheikh Ndiaye", position: "G", number: 11 },
@@ -208,7 +208,7 @@ export const teams = [
     coach: "Sam Vincent",
     founded: 1995,
     logo: "/logos/mbb.png",
-    cover: "/images/petro-cover.jpg",
+    cover: "/images/placeholder.webp",
     players: [
       { id: 1101, name: "Sipho Dlamini", position: "G", number: 1 },
       { id: 1102, name: "Thabo Mokoena", position: "G", number: 2 },
@@ -228,7 +228,7 @@ export const teams = [
     coach: "John Ojiambo",
     founded: 2003,
     logo: "/logos/nairobi-thunder.png",
-    cover: "/images/petro-cover.jpg",
+    cover: "/images/placeholder.webp",
     players: [
       { id: 1201, name: "Paul Wanjiru", position: "G", number: 3 },
       { id: 1202, name: "David Ouma", position: "G", number: 5 },
@@ -248,7 +248,7 @@ export const teams = [
     coach: "Sami Ben Romdhane",
     founded: 1948,
     logo: "/logos/stade-africain.png",
-    cover: "/images/petro-cover.jpg",
+    cover: "/images/placeholder.webp",
     players: [
       { id: 1301, name: "Salah Ben", position: "G", number: 2 },
       { id: 1302, name: "Nader Hmida", position: "G", number: 4 },
@@ -268,7 +268,7 @@ export const teams = [
     coach: "Raoul Korner",
     founded: 2018,
     logo: "/logos/cape-town-tigers.png",
-    cover: "/images/petro-cover.jpg",
+    cover: "/images/placeholder.webp",
     players: [
       { id: 1401, name: "Thabo Jacobs", position: "G", number: 3 },
       { id: 1402, name: "Ruan van der Merwe", position: "G", number: 5 },
@@ -288,7 +288,7 @@ export const teams = [
     coach: "Messi (placeholder)",
     founded: 1911,
     logo: "/logos/zamalek.png",
-    cover: "/images/petro-cover.jpg",
+    cover: "/images/placeholder.webp",
     players: [
       { id: 1501, name: "Ahmed Hassan", position: "G", number: 1 },
       { id: 1502, name: "Mohamed Fathy", position: "G", number: 2 },
@@ -308,7 +308,7 @@ export const teams = [
     coach: "Ismaël Koné",
     founded: 1963,
     logo: "/logos/as-police.png",
-    cover: "/images/petro-cover.jpg",
+    cover: "/images/placeholder.webp",
     players: [
       { id: 1601, name: "Youssouf Traoré", position: "G", number: 4 },
       { id: 1602, name: "Mahamadou Keita", position: "G", number: 6 },
@@ -328,7 +328,7 @@ export const teams = [
     coach: "James Izundu",
     founded: 2015,
     logo: "/logos/kwara-falcons.png",
-    cover: "/images/petro-cover.jpg",
+    cover: "/images/placeholder.webp",
     players: [
       { id: 1701, name: "Sulaimon Bello", position: "G", number: 3 },
       { id: 1702, name: "Tomi Adebayo", position: "G", number: 5 },
@@ -348,7 +348,7 @@ export const teams = [
     coach: "Henry Mwinuka",
     founded: 2014,
     logo: "/logos/patriots-bbc.png",
-    cover: "/images/petro-cover.jpg",
+    cover: "/images/placeholder.webp",
     players: [
       { id: 1801, name: "Armel Ingabire", position: "G", number: 1 },
       { id: 1802, name: "Olivier Ndayisaba", position: "G", number: 2 },
@@ -368,7 +368,7 @@ export const teams = [
     coach: "Justin Gashumba",
     founded: 2016,
     logo: "/logos/reg.png",
-    cover: "/images/petro-cover.jpg",
+    cover: "/images/placeholder.webp",
     players: [
       { id: 1901, name: "Jean Bosco", position: "G", number: 3 },
       { id: 1902, name: "Eddy Munyaneza", position: "G", number: 5 },
