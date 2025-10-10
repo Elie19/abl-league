@@ -11,7 +11,33 @@ export default function MatchesClient() {
   const [icsContent, setIcsContent] = useState<string | null>(null);
 
   const handleExportCalendar = () => {
-    const ics = generateICS(matches);
+    // Filtrer les matchs valides et compléter les champs manquants
+    const validMatches: Match[] = matches
+      .filter(
+        (m): m is Match =>
+          m.date !== undefined &&
+          m.teamA !== undefined &&
+          m.teamB !== undefined
+      )
+      .map((m) => ({
+        ...m,
+        teamA: {
+          title: m.teamA.title ?? 0,
+          city: m.teamA.city ?? "",
+          coach: m.teamA.coach ?? "",
+          founded: m.teamA.founded ?? 0,
+          ...m.teamA,
+        },
+        teamB: {
+          title: m.teamB.title ?? 0,
+          city: m.teamB.city ?? "",
+          coach: m.teamB.coach ?? "",
+          founded: m.teamB.founded ?? 0,
+          ...m.teamB,
+        },
+      }));
+
+    const ics = generateICS(validMatches);
     setIcsContent(ics);
 
     // Crée et télécharge le fichier .ics
@@ -49,43 +75,43 @@ export default function MatchesClient() {
 
       {/* Liste des matchs */}
       <div className="grid gap-6 md:grid-cols-2">
-        {matches.map((match: Match) => (
-          <motion.div
-            key={match.id}
-            className="p-5 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-md"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <div className="flex justify-between items-center mb-2">
-              <h3 className="text-xl font-semibold">
-                {match.teamA.name} vs {match.teamB.name}
-              </h3>
-              <p className="text-sm text-gray-500">
-                {new Date(match.date).toLocaleDateString("fr-FR", {
-                  weekday: "short",
-                  month: "short",
-                  day: "numeric",
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}
-              </p>
-            </div>
+        {matches
+          .filter((m): m is Match => m.date !== undefined)
+          .map((match: Match) => (
+            <motion.div
+              key={match.id}
+              className="p-5 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-md"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+            >
+              <div className="flex justify-between items-center mb-2">
+                <h3 className="text-xl font-semibold">
+                  {match.teamA.name} vs {match.teamB.name}
+                </h3>
+                <p className="text-sm text-gray-500">
+                  {new Date(match.date).toLocaleDateString("fr-FR", {
+                    weekday: "short",
+                    month: "short",
+                    day: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                </p>
+              </div>
 
-            <p className="text-sm text-gray-400">
-              📍 {match.stadium || "Stade non spécifié"}
-            </p>
+              <p className="text-sm text-gray-400">
+                📍 {match.stadium || "Stade non spécifié"}
+              </p>
 
-            {match.scoreA !== undefined && match.scoreB !== undefined ? (
-              <p className="mt-2 text-lg font-medium text-green-600 dark:text-green-400">
-                Résultat : {match.scoreA} - {match.scoreB}
-              </p>
-            ) : (
-              <p className="mt-2 text-sm text-yellow-500">
-                À venir ⏳
-              </p>
-            )}
-          </motion.div>
-        ))}
+              {match.scoreA !== undefined && match.scoreB !== undefined ? (
+                <p className="mt-2 text-lg font-medium text-green-600 dark:text-green-400">
+                  Résultat : {match.scoreA} - {match.scoreB}
+                </p>
+              ) : (
+                <p className="mt-2 text-sm text-yellow-500">À venir ⏳</p>
+              )}
+            </motion.div>
+          ))}
       </div>
 
       {/* Affiche le contenu ICS (debug facultatif) */}

@@ -1,9 +1,12 @@
+import { title } from "process";
+
 // équipes de basketball à travers l'Afrique.
 export const teams = [
   {
     id: "team1",
     name: "Petro de Luanda",
     city: "Luanda",
+    title: "1",
     country: "Angola",
     coach: "Sérgio Valdeolmillos",
     founded: 1980,
@@ -25,6 +28,7 @@ export const teams = [
     name: "Al Ahli Tripoli",
     city: "Tripoli",
     country: "Libya",
+    title: "0",
     coach: "Fouad Abou Chakra",
     founded: 1950,
     logo: "/logos/al-ahli-tripoli.png",
@@ -44,6 +48,7 @@ export const teams = [
     id: "team3",
     name: "US Monastir",
     city: "Monastir",
+    title: "1",
     country: "Tunisia",
     coach: "Vasco Curado",
     founded: 1959,
@@ -64,6 +69,7 @@ export const teams = [
     id: "team4",
     name: "FUS Rabat",
     city: "Rabat",
+    title: "0",
     country: "Morocco",
     coach: "Said El Bouzidi",
     founded: 1946,
@@ -84,6 +90,7 @@ export const teams = [
     id: "team5",
     name: "Rivers Hoopers",
     city: "Port Harcourt",
+    title: "1",
     country: "Nigeria",
     coach: "Ogoh Odaudu",
     founded: 2001,
@@ -104,6 +111,7 @@ export const teams = [
     id: "team6",
     name: "APR",
     city: "Kigali",
+    title: "0",
     country: "Rwanda",
     coach: "James Maye Jr.",
     founded: 1990,
@@ -124,6 +132,7 @@ export const teams = [
     id: "team7",
     name: "Al Ittihad Alexandria",
     city: "Alexandria",
+    title: "0",
     country: "Egypt",
     coach: "Ahmed Soliman",
     founded: 1914,
@@ -144,6 +153,7 @@ export const teams = [
     id: "team8",
     name: "Kriol Star",
     city: "Praia",
+    title: "0",
     country: "Cape Verde",
     coach: "Hugo Salgado",
     founded: 2015,
@@ -163,6 +173,7 @@ export const teams = [
   {
     id: "team9",
     name: "Stade Malien",
+    title: "0",
     city: "Bamako",
     country: "Mali",
     coach: "Amadou Diallo",
@@ -184,6 +195,7 @@ export const teams = [
     id: "team10",
     name: "ASC Ville de Dakar",
     city: "Dakar",
+    title: "0",
     country: "Senegal",
     coach: "Mamadou Diop",
     founded: 1965,
@@ -203,6 +215,7 @@ export const teams = [
   {
     id: "team11",
     name: "MBB",
+    title: "0",
     city: "Pretoria",
     country: "South Africa",
     coach: "Sam Vincent",
@@ -223,6 +236,7 @@ export const teams = [
   {
     id: "team12",
     name: "Nairobi City Thunder",
+    title: "0",
     city: "Nairobi",
     country: "Kenya",
     coach: "John Ojiambo",
@@ -244,6 +258,7 @@ export const teams = [
     id: "team13",
     name: "Stade Africain",
     city: "Tunis",
+    title: "0",
     country: "Tunisia",
     coach: "Sami Ben Romdhane",
     founded: 1948,
@@ -263,6 +278,7 @@ export const teams = [
   {
     id: "team14",
     name: "Cape Town Tigers",
+    title: "0",
     city: "Cape Town",
     country: "South Africa",
     coach: "Raoul Korner",
@@ -283,6 +299,7 @@ export const teams = [
   {
     id: "team15",
     name: "Zamalek",
+    title: "1",
     city: "Cairo",
     country: "Egypt",
     coach: "Messi (placeholder)",
@@ -303,6 +320,7 @@ export const teams = [
   {
     id: "team16",
     name: "AS Police",
+    title: "0",
     city: "Bamako",
     country: "Mali",
     coach: "Ismaël Koné",
@@ -323,6 +341,7 @@ export const teams = [
   {
     id: "team17",
     name: "Kwara Falcons",
+    title: "0",
     city: "Ilorin",
     country: "Nigeria",
     coach: "James Izundu",
@@ -343,6 +362,7 @@ export const teams = [
   {
     id: "team18",
     name: "Patriots BBC",
+    title: "0",
     city: "Kigali",
     country: "Rwanda",
     coach: "Henry Mwinuka",
@@ -363,6 +383,7 @@ export const teams = [
   {
     id: "team19",
     name: "REG",
+    title: "0",
     city: "Kigali",
     country: "Rwanda",
     coach: "Justin Gashumba",
@@ -383,6 +404,7 @@ export const teams = [
   {
     id: "team20",
     name: "SLAC",
+    title: "0",
     city: "Conakry",
     country: "Guinea",
     coach: "Kaba Magassouba",
