@@ -1,13 +1,12 @@
-// app/matches/MatchesClient.tsx
-import { useState } from "react";
-import { Match } from "@/lib/types"; // Assure-toi que Match a teamA.id et teamB.id en string
+"use client"; 
+
+import { Match } from "@/lib/types";
 
 interface MatchesClientProps {
   matches: Match[];
 }
 
 export default function MatchesClient({ matches }: MatchesClientProps) {
-  // Filtrer uniquement les matchs valides (avec date et équipes définies)
   const validMatches: Match[] = matches.filter(
     (m): m is Match =>
       m.date !== undefined &&
