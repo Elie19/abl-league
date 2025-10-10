@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Match } from "../types"; // Assure-toi que Match est défini avec teamA.id et teamB.id en string
+import { Match } from "types";
 import { generateICS } from "../utils/icsGenerator"; //fonction utilitaire pour générer le .ics
 
 interface MatchesClientProps {
