@@ -5,6 +5,7 @@ import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 import GlobalSearch from "./GlobalSearch";
 
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -20,11 +21,7 @@ export default function Header() {
             ABL
           </Link>
 
-          {/* Recherche globale (desktop uniquement) */}
-          <div className="hidden md:block w-72">
-            <GlobalSearch />
           </div>
-        </div>
 
         {/* Liens de navigation (desktop) */}
         <div className="hidden md:flex items-center gap-6">
@@ -68,7 +65,7 @@ export default function Header() {
       {menuOpen && (
         <div className="md:hidden bg-white dark:bg-secondary border-t border-gray-200 dark:border-gray-700">
           <div className="flex flex-col items-center gap-4 py-4">
-            <GlobalSearch />
+            
             <Link
               href="/"
               onClick={() => setMenuOpen(false)}
