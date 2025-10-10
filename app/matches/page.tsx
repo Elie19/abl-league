@@ -1,12 +1,19 @@
-// app/matches/page.tsx
 import MatchesClient from "./MatchesClient";
-
-export const metadata = {
-  title: "Matchs | ABL League",
-  description:
-    "Consultez les résultats récents, les matchs à venir et ajoutez-les à votre calendrier.",
-};
+import { Match } from "@/lib/types";
 
 export default function MatchesPage() {
-  return <MatchesClient />;
+  const matches: Match[] = [
+    {
+      id: "1",
+      date: "2025-10-10T15:00:00Z",
+      stadium: "Stade A",
+      teamA: { id: "team1", name: "Équipe A" },
+      teamB: { id: "team2", name: "Équipe B" },
+      scoreA: 2,
+      scoreB: 1,
+    },
+    // autres matchs ici
+  ];
+
+  return <MatchesClient matches={matches} />;
 }
